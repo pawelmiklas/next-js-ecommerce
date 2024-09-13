@@ -1,18 +1,13 @@
-"use client";
-
 import { CategorySection } from "@/components/home/CategorySection";
 import { Footer } from "@/components/home/Footer";
 import { HeroSection } from "@/components/home/HeroSection";
-import { useCategoriesQuery } from "@/hooks/useCategoriesQuery";
 
-export default function Home() {
-  const { data } = useCategoriesQuery();
+const Home = () => (
+  <>
+    <HeroSection />
+    <CategorySection />
+    <Footer />
+  </>
+);
 
-  return (
-    <>
-      <HeroSection />
-      <CategorySection categories={data} />
-      <Footer />
-    </>
-  );
-}
+export default Home;
