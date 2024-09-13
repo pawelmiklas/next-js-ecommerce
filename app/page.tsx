@@ -1,8 +1,16 @@
+"use client";
+
+import { CategorySection } from "@/components/home/CategorySection";
+import { HeroSection } from "@/components/home/HeroSection";
+import { useCategoriesQuery } from "@/hooks/useCategoriesQuery";
 
 export default function Home() {
+  const { data } = useCategoriesQuery();
+
   return (
-    <main>
-      <h1>Hello World</h1>
-    </main>
+    <>
+      <HeroSection />
+      <CategorySection categories={data} />
+    </>
   );
 }
