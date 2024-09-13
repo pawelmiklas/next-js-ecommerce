@@ -17,7 +17,7 @@ export const CategorySection = ({ categories }: CategorySectionProps) => (
       latest trends, find your perfect look in our diverse collections.
     </p>
     <div className="mt-4">
-      <div className="grid sm:grid-cols-2 gap-x-4 gap-y-8 lg:grid-cols-4 lg:gap-x-6">
+      <div className="grid sm:grid-cols-2 gap-6 sm:gap-4 lg:grid-cols-4">
         {categories.map((category) => (
           <Link
             key={category}

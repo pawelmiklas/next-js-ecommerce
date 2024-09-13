@@ -1,6 +1,7 @@
 "use client";
 
 import { CategorySection } from "@/components/home/CategorySection";
+import { Footer } from "@/components/home/Footer";
 import { HeroSection } from "@/components/home/HeroSection";
 import { useCategoriesQuery } from "@/hooks/useCategoriesQuery";
 
@@ -11,6 +12,7 @@ export default function Home() {
     <>
       <HeroSection />
       <CategorySection categories={data} />
+      <Footer />
     </>
   );
 }
