@@ -6,6 +6,7 @@ import {
   ShoppingBagIcon,
   Square3Stack3DIcon,
 } from "@heroicons/react/24/outline";
+import { SWRGlobalConfig } from "@/lib/swrConfig";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,16 +24,14 @@ export const metadata: Metadata = {
   description: "Elevate your style with our curated fashion collection",
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+}>) => (
+  <html lang="en">
+    <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <SWRGlobalConfig>
         <header className="bg-gray-800 p-4">
           <nav className="flex justify-between items-center">
             <Link href="/" className="text-white">
@@ -46,7 +45,9 @@ export default function RootLayout({
           </nav>
         </header>
         {children}
-      </body>
-    </html>
-  );
-}
+      </SWRGlobalConfig>
+    </body>
+  </html>
+);
+
+export default RootLayout;
