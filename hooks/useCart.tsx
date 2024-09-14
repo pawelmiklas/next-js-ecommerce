@@ -1,11 +1,7 @@
 "use client";
 
-import { Product } from "./useCategoryProducts";
+import { CartItem, Product } from "@/types";
 import { useLocalStorage } from "./useLocalStorage";
-
-interface CartItem extends Product {
-  quantity: number;
-}
 
 export const useCart = () => {
   const [cart, setCart] = useLocalStorage<CartItem[]>("cart", []);
@@ -30,9 +26,5 @@ export const useCart = () => {
     setCart(cart.filter(({ id }) => id !== productId));
   };
 
-  const clearCart = () => {
-    setCart([]);
-  };
-
-  return { cart, addToCart, removeFromCart, updateQuantity, clearCart };
+  return { cart, addToCart, removeFromCart, updateQuantity };
 };

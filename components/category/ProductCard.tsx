@@ -1,19 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useCart, Product } from "@/hooks";
+import { useCart } from "@/hooks";
 import { StarRating } from "./StartRating";
+import { formatPrice } from "@/utils";
+import { Product } from "@/types";
 
 interface ProductCardProps {
   product: Product;
 }
-
-const priceFormatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-});
 
 export const ProductCard = ({ product }: ProductCardProps) => {
   const { addToCart } = useCart();
@@ -41,7 +36,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           {product.description}
         </p>
         <p className="text-gray-900 py-2 text-center text-xl font-bold">
-          {priceFormatter.format(product.price)}
+          {formatPrice(product.price)}
         </p>
         <div className="flex justify-center mb-2">
           <StarRating rating={product.rating.rate} />
@@ -49,7 +44,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       </div>
       <button
         onClick={() => addToCart(product)}
-        className="bg-gray-800 text-white py-3 hover:bg-gray-800 w-full uppercase font-bold transition-colors"
+        className="bg-gray-800 text-white py-3 hover:bg-gray-900 w-full uppercase font-bold transition-colors"
       >
         Add to Cart
       </button>
