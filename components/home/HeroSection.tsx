@@ -21,7 +21,7 @@ export const HeroSection = () => (
         chic to elegant sophistication, find your perfect look today.
       </p>
       <Link
-        href="/collection"
+        href="/"
         className="mt-8 rounded-md border border-transparent bg-white px-8 py-3 text-gray-900 hover:bg-gray-100 transition-colors"
       >
         Explore Collections
