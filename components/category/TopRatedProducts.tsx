@@ -1,4 +1,4 @@
-import { Product } from "@/hooks";
+import { Product } from "@/types";
 import { ProductCard } from "./ProductCard";
 import { ProductCardSkeleton } from "./ProductCardSkeleton";
 
