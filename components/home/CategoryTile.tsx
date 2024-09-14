@@ -8,7 +8,7 @@ interface CategoryTileProps {
 export const CategoryTile = ({ name }: CategoryTileProps) => (
   <Link
     key={name}
-    href={`/name/${name}`}
+    href={`/category/${name}`}
     className="relative flex h-64 w-full flex-col overflow-hidden rounded-lg hover:opacity-90 transition-all"
   >
     <Image
