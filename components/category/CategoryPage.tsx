@@ -1,6 +1,6 @@
 "use client";
 
-import { useCategoryProducts } from "@/hooks";
+import { useCategoryProductsQuery } from "@/hooks";
 import { useMemo } from "react";
 import { CategoryStats } from "./CategoryStats";
 import { TopRatedProducts } from "./TopRatedProducts";
@@ -11,7 +11,8 @@ interface CategoryPageProps {
 }
 
 export const CategoryPage = ({ categoryName }: CategoryPageProps) => {
-  const { data: products = [], isLoading } = useCategoryProducts(categoryName);
+  const { data: products = [], isLoading } =
+    useCategoryProductsQuery(categoryName);
 
   const stats = useMemo(
     () => ({
