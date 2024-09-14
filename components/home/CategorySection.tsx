@@ -1,13 +1,13 @@
 "use client";
 
-import { useCategoriesQuery } from "@/hooks/useCategoriesQuery";
+import { useCategoriesQuery } from "@/hooks";
 import { CategoryTile } from "./CategoryTile";
 
 export const CategorySection = () => {
   const { data, isLoading } = useCategoriesQuery();
 
   return (
-    <section className="py-12 xl:mx-auto xl:max-w-7xl px-8">
+    <section className="py-12 mx-auto container px-8">
       <div className="flex items-center justify-between">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900">
           Explore Our Collections
