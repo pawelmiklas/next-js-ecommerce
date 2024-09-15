@@ -42,6 +42,7 @@ export const CartItem = ({
           <button
             onClick={() => onRemove(item.id)}
             className="text-gray-400 hover:text-red-500 transition-colors"
+            data-testid="remove-item-button"
           >
             <XMarkIcon className="h-6 w-6" />
           </button>
@@ -52,13 +53,17 @@ export const CartItem = ({
             <button
               onClick={() => handleQuantityChange(-1)}
               className="text-gray-500 hover:text-gray-700 transition-colors"
+              data-testid="decrease-quantity-button"
             >
               <MinusIcon className="h-5 w-5" />
             </button>
-            <span className="mx-2 w-8 text-center">{item.quantity}</span>
+            <span className="mx-2 w-8 text-center" data-testid="item-quantity">
+              {item.quantity}
+            </span>
             <button
               onClick={() => handleQuantityChange(1)}
               className="text-gray-500 hover:text-gray-700 transition-colors"
+              data-testid="increase-quantity-button"
             >
               <PlusIcon className="h-5 w-5" />
             </button>

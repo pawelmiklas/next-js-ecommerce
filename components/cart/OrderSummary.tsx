@@ -16,7 +16,7 @@ export const OrderSummary = ({
   <div className="bg-gray-100 p-6 rounded-lg shadow">
     <h2 className="text-xl font-bold mb-4">Order Summary</h2>
     <div className="space-y-2 mb-4">
-      <div className="flex justify-between">
+      <div className="flex justify-between" data-testid="subtotal">
         <span>Subtotal</span>
         <span>{formatPrice(subtotal)}</span>
       </div>
@@ -24,11 +24,14 @@ export const OrderSummary = ({
         <span>Shipping Estimate</span>
         <span>{formatPrice(shippingEstimate)}</span>
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between" data-testid="tax-estimate">
         <span>Tax Estimate</span>
         <span>{formatPrice(taxEstimate)}</span>
       </div>
-      <div className="flex justify-between font-bold text-lg">
+      <div
+        className="flex justify-between font-bold text-lg"
+        data-testid="order-total"
+      >
         <span>Order Total</span>
         <span>{formatPrice(orderTotal)}</span>
       </div>
