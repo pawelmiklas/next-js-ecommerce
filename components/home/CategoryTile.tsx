@@ -14,9 +14,8 @@ export const CategoryTile = ({ name }: CategoryTileProps) => (
     <Image
       src={`/${name.toLowerCase()}.jpg`}
       alt={name}
-      layout="fill"
-      objectFit="cover"
-      className="absolute inset-0"
+      fill
+      className="absolute inset-0 object-cover"
     />
     <span className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-50" />
     <span className="relative mt-auto p-4 text-center text-xl font-bold text-white">
