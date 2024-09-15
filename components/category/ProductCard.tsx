@@ -26,25 +26,31 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <p
           className="line-clamp-1 text-center text-gray-800 mb-2"
           title={product.title}
+          data-testid="product-title"
         >
           {product.title}
         </p>
         <p
           className="line-clamp-2 text-sm text-center text-gray-500"
           title={product.description}
+          data-testid="product-description"
         >
           {product.description}
         </p>
-        <p className="text-gray-900 py-2 text-center text-xl font-bold">
+        <p
+          className="text-gray-900 py-2 text-center text-xl font-bold"
+          data-testid="product-price"
+        >
           {formatPrice(product.price)}
         </p>
-        <div className="flex justify-center mb-2">
+        <div className="flex justify-center mb-2" data-testid="product-rating">
           <StarRating rating={product.rating.rate} />
         </div>
       </div>
       <button
         onClick={() => addToCart(product)}
         className="bg-gray-800 text-white py-3 hover:bg-gray-900 w-full uppercase font-bold transition-colors"
+        data-testid="add-to-cart-button"
       >
         Add to Cart
       </button>
