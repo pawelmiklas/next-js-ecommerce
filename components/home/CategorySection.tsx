@@ -1,10 +1,8 @@
-"use client";
-
-import { useCategoriesQuery } from "@/hooks";
+import { getCategories } from "@/services";
 import { CategoryTile } from "./CategoryTile";
 
-export const CategorySection = () => {
-  const { data, isLoading } = useCategoriesQuery();
+export const CategorySection = async () => {
+  const data = await getCategories();
 
   return (
     <section className="py-12 mx-auto container px-8">
@@ -19,16 +17,9 @@ export const CategorySection = () => {
       </p>
       <div className="mt-4">
         <div className="grid sm:grid-cols-2 gap-6 sm:gap-4 lg:grid-cols-4">
-          {isLoading
-            ? Array.from({ length: 4 }).map((_, index) => (
-                <div
-                  key={index}
-                  className="relative flex h-64 w-full flex-col overflow-hidden rounded-lg bg-gray-200 animate-pulse"
-                />
-              ))
-            : data.map((category) => (
-                <CategoryTile key={category} name={category} />
-              ))}
+          {data.map((category) => (
+            <CategoryTile key={category} name={category} />
+          ))}
         </div>
       </div>
     </section>

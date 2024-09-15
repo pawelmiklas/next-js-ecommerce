@@ -1,5 +1,3 @@
-"use client";
-
 import { CartItem, Product } from "@/types";
 import { useLocalStorage } from "./useLocalStorage";
 

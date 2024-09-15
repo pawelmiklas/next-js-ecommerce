@@ -1,42 +1,33 @@
-"use client";
-
-import { useCategoryProductsQuery } from "@/hooks";
-import { useMemo } from "react";
 import { CategoryStats } from "./CategoryStats";
 import { TopRatedProducts } from "./TopRatedProducts";
 import { ProductGrid } from "./ProductGrid";
+import { getCategoryProducts } from "@/services";
 
 interface CategoryPageProps {
   categoryName: string;
 }
 
-export const CategoryPage = ({ categoryName }: CategoryPageProps) => {
-  const { data: products = [], isLoading } =
-    useCategoryProductsQuery(categoryName);
+export const CategoryPage = async ({ categoryName }: CategoryPageProps) => {
+  const products = await getCategoryProducts(categoryName);
 
-  const stats = useMemo(
-    () => ({
-      totalProducts: products.length,
-      averagePrice: products.length
-        ? (
-            products.reduce((sum, p) => sum + p.price, 0) / products.length
-          ).toFixed(2)
-        : "0.00",
-      averageRating: products.length
-        ? (
-            products.reduce((sum, p) => sum + p.rating.rate, 0) /
-            products.length
-          ).toFixed(1)
-        : "0.0",
-    }),
-    [products]
-  );
+  const stats = {
+    totalProducts: products.length,
+    averagePrice: products.length
+      ? (
+          products.reduce((sum, { price }) => sum + price, 0) / products.length
+        ).toFixed(2)
+      : "0.00",
+    averageRating: products.length
+      ? (
+          products.reduce((sum, { rating }) => sum + rating.rate, 0) /
+          products.length
+        ).toFixed(1)
+      : "0.0",
+  };
 
-  const topRatedProducts = useMemo(
-    () =>
-      [...products].sort((a, b) => b.rating.rate - a.rating.rate).slice(0, 3),
-    [products]
-  );
+  const topRatedProducts = [...products]
+    .sort((a, b) => b.rating.rate - a.rating.rate)
+    .slice(0, 3);
 
   return (
     <div className="container mx-auto px-4 py-8 min-h-min flex flex-col">
@@ -46,9 +37,9 @@ export const CategoryPage = ({ categoryName }: CategoryPageProps) => {
         </h1>
       </div>
 
-      <TopRatedProducts products={topRatedProducts} isLoading={isLoading} />
+      <TopRatedProducts products={topRatedProducts} />
       <CategoryStats stats={stats} />
-      <ProductGrid products={products} isLoading={isLoading} />
+      <ProductGrid products={products} />
     </div>
   );
 };
