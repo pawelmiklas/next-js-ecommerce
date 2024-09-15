@@ -1,5 +1,4 @@
-import { CategorySection } from "@/components/home/CategorySection";
-import { HeroSection } from "@/components/home/HeroSection";
+import { HomePage } from "@/components/home/HomePage";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,11 +7,8 @@ export const metadata: Metadata = {
     "Discover our curated collection of trendsetting fashion. From casual chic to elegant sophistication, find your perfect look today.",
 };
 
-const Home = () => (
-  <>
-    <HeroSection />
-    <CategorySection />
-  </>
-);
+const Page = () => {
+  return <HomePage />;
+};
 
-export default Home;
+export default Page;

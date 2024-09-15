@@ -26,11 +26,11 @@ export const StarRating = ({ rating, maxRating = 5 }: StarRatingProps) => {
               </div>
             </div>
           );
-        } else {
-          return (
-            <StarIconOutline key={index} className="w-5 h-5 text-yellow-400" />
-          );
         }
+
+        return (
+          <StarIconOutline key={index} className="w-5 h-5 text-yellow-400" />
+        );
       })}
       <span className="ml-1 text-sm text-gray-600">({rating.toFixed(1)})</span>
     </div>
