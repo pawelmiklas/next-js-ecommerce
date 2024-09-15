@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { SWRGlobalConfig } from "@/lib/swrConfig";
@@ -15,11 +14,6 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
-
-export const metadata: Metadata = {
-  title: "StyleHub",
-  description: "Elevate your style with our curated fashion collection",
-};
 
 const RootLayout = ({
   children,
