@@ -1,3 +1,7 @@
+# node: 21.6.0
+
+# npm: 10.2.4
+
 ```bash
 npm install
 npm run dev
