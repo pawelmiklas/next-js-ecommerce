@@ -1,6 +1,5 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import { SWRGlobalConfig } from "@/lib/swrConfig";
 import { Footer } from "@/components/shared/Footer";
 import { Navigation } from "@/components/shared/Navigation";
 
@@ -22,11 +21,9 @@ const RootLayout = ({
 }>) => (
   <html lang="en">
     <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      <SWRGlobalConfig>
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
-      </SWRGlobalConfig>
+      <Navigation />
+      <main>{children}</main>
+      <Footer />
     </body>
   </html>
 );
